@@ -1,1 +1,8 @@
+# Set up SSM Agent
+# Need for SSM agent:
+If EC2 instances created in private subnet and you want to connect to instances without using ssh through jump host or bastion. Then you can use SSM agent. For this we have some steps.
+
+## 1. Create  an IAM role for EC2 instance and attach this Policy for SSM.
+
+
 
