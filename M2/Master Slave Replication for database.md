@@ -1,12 +1,12 @@
 # Set-up Mysql Master Slave Replication 
 
-# Installing Mysql :
-## sudo apt install mysql-server-8.0
+## Installing Mysql 
+    #### sudo apt install mysql-server-8.0
 
-# Open the Mysql prompt:
-## sudo mysql
+## Open the Mysql prompt
+    #### sudo mysql
 
-# Change the root user authentication and password.
+## Change the root user authentication and password
     ## ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
     ## exit
@@ -15,23 +15,23 @@
 
     ## mysql -u root -p
 
-# Create database :
+## Create database :
     ## CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 # Create user for the database and set password :
     ## CREATE USER 'wordpressuser'@'%' IDENTIFIED WITH mysql_native_password BY 'password';
 
 # Give the permissions to the database:
-   ## GRANT ALL ON wordpress.* TO 'wordpressuser'@'%';
+       ## GRANT ALL ON wordpress.* TO 'wordpressuser'@'%';
 
 #  You now have a database and user account, each made specifically for WordPress. You need to flush the privileges so that the current instance of MySQL knows about the recent changes made:
-  ## FLUSH PRIVILEGES;
+      ## FLUSH PRIVILEGES;
 
-EXIT;
+    EXIT;
 
-# Replication steps for master :
+## Replication steps for master :
 
-  ## vim /etc/mysql/mysql.conf.d/mysqld.cnf
+   #### vim /etc/mysql/mysql.conf.d/mysqld.cnf
     [mysqld]
       # bind-address = 127.0.0.1 (find this and comment this out)
         server_id = 1
@@ -41,14 +41,14 @@ EXIT;
         max_binlog_size = 100M
         expire_logs_days = 1
 
-   ## systemctl restart mysql -> in system
-   ## systemctl status mysql
+   #### systemctl restart mysql -> in system
+   #### systemctl status mysql
 
-# in mysql database 
-  ## mysql> create user 'replica_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Junior@dev';
-  ## mysql> grant replication slave on *.* to 'replica_user'@'%';
-  ## mysql> flush privileges; 
-  ## mysql> show master status\G;
+## in mysql database 
+   ## mysql> create user 'replica_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Junior@dev';
+   ## mysql> grant replication slave on *.* to 'replica_user'@'%';
+   ## mysql> flush privileges; 
+   ## mysql> show master status\G;
 *************************** 1. row ***************************
  File: mysql-bin.000002
  Position: 157
@@ -57,11 +57,11 @@ EXIT;
 Executed_Gtid_Set:
 1 row in set (0.00 sec)
 
-# Replication steps for Slave :
+## Replication steps for Slave :
 
-#### Install mysql first. 
+  #### Install mysql first. 
 
- # vim /etc/mysql/mysql.conf.d/mysqld.cnf
+  ## vim /etc/mysql/mysql.conf.d/mysqld.cnf
     [mysqld]
     # bind-address = 127.0.0.1 (find this and comment this out)
       server_id = 2
@@ -71,7 +71,7 @@ In mysql :
 first set up and authenticate to root first. 
 go to mysql and do the required changes.
 
-  ## mysql> change master to master_host='10.0.0.211', master_port=3306, master_user='replica_user',master_password='Junior@dev', master_log_file='mysql-bin.000002',       master_log_pos=157;
+  #### mysql> change master to master_host='10.0.0.211', master_port=3306, master_user='replica_user',master_password='Junior@dev', master_log_file='mysql-bin.000002',       master_log_pos=157;
     ## mysql> start slave;
     ## mysql> show slave status\G;
     check in status:
