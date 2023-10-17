@@ -24,7 +24,7 @@
 # Give the permissions to the database:
        ## GRANT ALL ON wordpress.* TO 'wordpressuser'@'%';
 
-#  You now have a database and user account, each made specifically for WordPress. You need to flush the privileges so that the current instance of MySQL knows about the recent changes made:
+    ###  You now have a database and user account, each made specifically for WordPress. You need to flush the privileges so that the current instance of MySQL knows about the recent changes made:
       ## FLUSH PRIVILEGES;
 
     EXIT;
@@ -41,14 +41,14 @@
         max_binlog_size = 100M
         expire_logs_days = 1
 
-   #### systemctl restart mysql -> in system
-   #### systemctl status mysql
+    #### systemctl restart mysql -> in system
+    #### systemctl status mysql
 
 ## in mysql database 
-   ## mysql> create user 'replica_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Junior@dev';
-   ## mysql> grant replication slave on *.* to 'replica_user'@'%';
-   ## mysql> flush privileges; 
-   ## mysql> show master status\G;
+    ## mysql> create user 'replica_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Junior@dev';
+    ## mysql> grant replication slave on *.* to 'replica_user'@'%';
+    ## mysql> flush privileges; 
+    ## mysql> show master status\G;
 *************************** 1. row ***************************
  File: mysql-bin.000002
  Position: 157
@@ -59,9 +59,9 @@ Executed_Gtid_Set:
 
 ## Replication steps for Slave :
 
-  #### Install mysql first. 
+   #### Install mysql first. 
 
-  ## vim /etc/mysql/mysql.conf.d/mysqld.cnf
+    ## vim /etc/mysql/mysql.conf.d/mysqld.cnf
     [mysqld]
     # bind-address = 127.0.0.1 (find this and comment this out)
       server_id = 2
