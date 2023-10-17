@@ -19,40 +19,44 @@
 
   2. Install git and binutils, using the following command. binutils is required for building DEB packages,
 
-    sudo apt-get -y install git binutils
+      sudo apt-get -y install git binutils
         
   3. Clone amazon-efs-utils from GitHub using the following command.
 
-     git clone https://github.com/aws/efs-utils
+      git clone https://github.com/aws/efs-utils
 
   4. To build and install the amazon-efs-utils DEB package
 
 ## Navigate to the directory that contains the amazon-efs-utils package.
 
-     cd /var/www/wordpress/wp-content/efs-utils/
+       cd /var/www/wordpress/wp-content/efs-utils/
   
   5. Build amazon-efs-utils using the following command:
 
-     ./build-deb.sh
+        ./build-deb.sh
  
    6. Install the package with the following command.
-     sudo apt-get -y install ./build/amazon-efs-utils*deb
+      
+        sudo apt-get -y install ./build/amazon-efs-utils*deb
 
 ### Mount manually :
-   sudo mount -t efs file_system_id folder/
-   df -h
+      sudo mount -t efs file_system_id folder/
+      
+      df -h
 
 ### For unmount:
-  sudo unmount file_system_id folder/
-  df -h
+     sudo unmount file_system_id folder/
+     
+     df -h
 
 ### For Permanent mounting:
-  Go to vim /etc/fstab type this line and save it.
+     Go to vim /etc/fstab type this line and save it.
 
-file_system_id.efs.aws-region.amazonaws.com:/ mount_point nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0
+     file_system_id.efs.aws-region.amazonaws.com:/ mount_point nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0
 
- mount -a
- df -h
+     mount -a
+     
+     df -h
 
 same set up done in both wordpress..........
 
