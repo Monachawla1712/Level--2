@@ -14,12 +14,12 @@
 
  1. (Optional) Apply updates before installing the package with the following command:
 
-      ## sudo apt-get update
+         ### sudo apt-get update
           Install updates as needed.
 
   2. Install git and binutils, using the following command. binutils is required for building DEB packages,
 
-    ## sudo apt-get -y install git binutils
+    ###sudo apt-get -y install git binutils
         
   3. Clone amazon-efs-utils from GitHub using the following command.
 
