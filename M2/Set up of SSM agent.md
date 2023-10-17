@@ -4,13 +4,16 @@ If EC2 instances created in private subnet and you want to connect to instances 
 
 ## 1. Enable SSM-agent and check the status of SSM agent.
 
+<img width="791" alt="check status of ssm agent" src="https://github.com/Monachawla1712/Level--2/assets/146841568/cf877856-8d46-48cb-99e1-242b32808348">
+
 In ubuntu 22.04 , ssm is already installed. only we need to enable the service.
 
 (i) first we need to ssh the private instance through jump host and enable the service.
- sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
-sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service
+ ## sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
+## sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service
 
-and after enabled the ssm agent come out from ssh.
+ and after enabled the ssm agent come out from ssh.
+
 
 ## 2. Create  an IAM role for EC2 instance and attach this Policy for SSM.
 (i) Go to IAM service.
