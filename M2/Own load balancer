@@ -1,6 +1,0 @@
-# Creating Application Load Balancer.
-1. give the load balancer name and scheme is internet -facing and select IPv4 Address.
-2. In network mapping, select the vpc, availability zone and subnet.
-3. Give the security group for load balancer, allow all traffic.
-4. Choose Listening port 80 and attach target group.
-
