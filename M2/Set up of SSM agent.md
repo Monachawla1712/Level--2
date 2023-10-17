@@ -22,9 +22,11 @@ In ubuntu 22.04 , ssm is already installed. only we need to enable the service.
 <img width="829" alt="iam role for ssm" src="https://github.com/Monachawla1712/Level--2/assets/146841568/66b2f1b2-dbb1-4e2d-9a74-4a1cc35b3bbb">
 
 
+
 (iii) In the trusted entity , select AWS Service.
 
 <img width="658" alt="select ec2 service for ssm" src="https://github.com/Monachawla1712/Level--2/assets/146841568/1df7126b-91ba-43bd-a064-c4523fa3a9b3">
+
 
 
 (iv) In the use-Case section, choose EC2.
@@ -32,10 +34,12 @@ In ubuntu 22.04 , ssm is already installed. only we need to enable the service.
 <img width="397" alt="choose ssm" src="https://github.com/Monachawla1712/Level--2/assets/146841568/70ad1d07-01b3-431c-9160-b99e62449c7c">
 
 
+
 (V) In the add permission. create policy " AmazonSSMManagedInstanceCore"
 
 
 <img width="773" alt="choose this policy" src="https://github.com/Monachawla1712/Level--2/assets/146841568/62814a2b-5723-49e4-ad77-fc330cdefafc">
+
 
 
 ## 3. Attach Policy to all the private instances.
@@ -46,9 +50,11 @@ In ubuntu 22.04 , ssm is already installed. only we need to enable the service.
 <img width="518" alt="attach ssm role with instances" src="https://github.com/Monachawla1712/Level--2/assets/146841568/f22d3e2b-80fe-439a-b6d7-4681ec392818">
 
 
+
 (iii) Attach role and update IAM role.
 
 <img width="517" alt="attach it" src="https://github.com/Monachawla1712/Level--2/assets/146841568/ca1f0f40-c702-488b-a964-d0b1683cc860">
+
 
 
 ## 4. Go to session manager and connect the instance.
@@ -56,3 +62,4 @@ In ubuntu 22.04 , ssm is already installed. only we need to enable the service.
 <img width="576" alt="connect to ssm manager" src="https://github.com/Monachawla1712/Level--2/assets/146841568/de25e382-80e4-4e43-b495-ee50716d867f">
 
 
+SSM agent set up done.....
